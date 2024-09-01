@@ -1,0 +1,48 @@
+name: Deploy to Azure Web App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20.x'
+
+    - name: Install dependencies
+      working-directory: ./bridgeWebApp
+      run: |
+        npm ci
+        npm install react-router-dom @types/react-router-dom express
+    - name: Build
+      working-directory: ./bridgeWebApp
+      run: npm run build
+
+    - name: Prepare for deployment
+      run: |
+        cp bridgeWebApp/package.json bridgeWebApp/dist/
+        cp bridgeWebApp/package-lock.json bridgeWebApp/dist/
+        cp server.js bridgeWebApp/dist/
+        cd bridgeWebApp/dist
+        npm ci --only=production
+        echo "Contents of dist folder:"
+        ls -R
+        echo "Content of package.json:"
+        cat package.json
+        echo "Content of server.js:"
+        cat server.js
+
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: ./bridgeWebApp/dist
