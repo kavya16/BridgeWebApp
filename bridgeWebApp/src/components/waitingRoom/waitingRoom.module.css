@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #f0f2f5;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.title {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.gameCode {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4a4a4a;
+  margin-bottom: 1rem;
+}
+
+.message {
+  color: #666;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.playerList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.playerItem {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.playerCount {
+  font-size: 1.1rem;
+  color: #333;
+}
