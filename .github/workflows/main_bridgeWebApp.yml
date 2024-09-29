@@ -19,8 +19,9 @@ jobs:
 
     - name: Install dependencies
       working-directory: ./bridgeWebApp
-      run: npm ci
-
+      run: |
+        npm ci
+        npm install react-router-dom @types/react-router-dom express
     - name: Build
       working-directory: ./bridgeWebApp
       run: npm run build
@@ -28,6 +29,7 @@ jobs:
     - name: Prepare for deployment
       run: |
         cp bridgeWebApp/package.json bridgeWebApp/dist/
+        cp bridgeWebApp/package-lock.json bridgeWebApp/dist/
         cp server.js bridgeWebApp/dist/
         cd bridgeWebApp/dist
         npm ci --only=production
