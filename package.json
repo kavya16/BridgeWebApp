@@ -1,21 +1,31 @@
 {
+  "name": "bridgewebapp",
+  "private": true,
+  "version": "1.0.0",
   "type": "module",
-  "dependencies": {
-    "@reduxjs/toolkit": "^2.2.7",
-    "react-redux": "^9.1.2",
-    "react-router-dom": "^6.26.1",
-    "express": "^4.18.2"
-  },
   "scripts": {
-    "dev": "vite bridgeWebApp",
+    "dev": "vite",
+    "build": "tsc && vite build",
     "start": "node server.js",
-    "build": "vite build bridgeWebApp",
-    "preview": "vite preview bridgeWebApp"
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.14.1",
+    "socket.io-client": "^4.6.1"
+  },
   "devDependencies": {
-    "vite": "^4.x.x",
-    "@vitejs/plugin-react": "^4.x.x",
-    "@types/node": "^22.5.2"
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^8.0.0",
+    "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.1"
   }
 }
