@@ -42,6 +42,10 @@ jobs:
           cd dist
           npm install --only=production
 
+        # List contents of dist directory
+      - name: List dist contents
+        run: ls -la dist
+
       # Deploy to Azure Web App
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
