@@ -19,7 +19,7 @@ const CreateGame: React.FC = () => {
 
     try {
       const gameId = generateGameCode();
-      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/game/create`, {
+      const response = await axios.post(`${import.meta.env.API_BASE_URL}/game/create`, {
         gameId,
         playerId: playerName,
         maxPlayers: playerCount,

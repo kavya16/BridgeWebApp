@@ -25,7 +25,7 @@ const WaitingRoom: React.FC = () => {
     // Fetch initial game state
     const fetchGameState = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/game/${gameCode}`);
+        const response = await axios.get(`${import.meta.env.API_BASE_URL}/game/${gameCode}`);
         if (response.data.status === 'success') {
           setPlayers(response.data.gameState.players.map((name: string, index: number) => ({
             id: index + 1,

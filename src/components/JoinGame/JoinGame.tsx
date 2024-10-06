@@ -18,7 +18,7 @@ const JoinGame: React.FC = () => {
     }
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/game/join`, {
+      const response = await axios.post(`${import.meta.env.API_BASE_URL}/game/join`, {
         gameId: gameCode,
         playerId: playerName,
       });

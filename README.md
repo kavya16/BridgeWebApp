@@ -511,7 +511,7 @@ Here's a basic example of how to integrate the BridgeWebApp with a React front-e
 
      const playCard = async (card: { suit: string; value: string }) => {
        try {
-         await axios.post(`${import.meta.env.VITE_API_BASE_URL}/game/update`, {
+         await axios.post(`${import.meta.env.API_BASE_URL}/game/update`, {
            gameId,
            playerId: player?.id,
            cardPlayed: card,

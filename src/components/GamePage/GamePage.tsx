@@ -30,7 +30,7 @@ const GamePage: React.FC = () => {
     // Fetch initial game state
     const fetchGameState = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/game/${gameCode}`);
+        const response = await axios.get(`${import.meta.env.API_BASE_URL}/game/${gameCode}`);
         if (response.data.status === 'success') {
           setGameState(response.data.gameState.gameState);
           setCurrentPlayer(response.data.gameState.currentPlayer);
@@ -66,7 +66,7 @@ const GamePage: React.FC = () => {
     if (!selectedCard || !gameCode) return;
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/game/update`, {
+      await axios.post(`${import.meta.env.API_BASE_URL}/game/update`, {
         gameId: gameCode,
         playerId: players.find(p => p.name === selectedCard.value)?.name, // Adjust accordingly
         cardPlayed: selectedCard,
