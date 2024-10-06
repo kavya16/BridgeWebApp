@@ -133,11 +133,11 @@ Ensure you have the following installed on your machine:
 Create a `.env` file in the root directory with the following content:
 
 ```
-REACT_APP_API_BASE_URL=http://localhost:3001/api
+REACT_APP_VITE_API_BASE_URL=http://localhost:3001/api
 REACT_APP_SOCKET_URL=http://localhost:3001
 ```
 
-- **`REACT_APP_API_BASE_URL`**: Base URL for the BridgeAPI backend.
+- **`REACT_APP_VITE_API_BASE_URL`**: Base URL for the BridgeAPI backend.
 - **`REACT_APP_SOCKET_URL`**: URL for Socket.IO server.
 
 Note: In a production environment, ensure these variables are correctly set to point to your deployed backend services.
@@ -511,7 +511,7 @@ Here's a basic example of how to integrate the BridgeWebApp with a React front-e
 
      const playCard = async (card: { suit: string; value: string }) => {
        try {
-         await axios.post(`${import.meta.env.API_BASE_URL}/game/update`, {
+         await axios.post(`${import.meta.env.VITE_API_BASE_URL}/game/update`, {
            gameId,
            playerId: player?.id,
            cardPlayed: card,
